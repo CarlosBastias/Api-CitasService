@@ -29,9 +29,9 @@ public class CitaController {
         return ResponseEntity.ok(citaService.getById(id));
     }
 
-    @GetMapping("/paciente/{pacienteId}")
-    public ResponseEntity<List<Cita>> getByPacienteId(@PathVariable Long pacienteId) {
-        return ResponseEntity.ok(citaService.getByPacienteId(pacienteId));
+    @GetMapping("/paciente/{pacienteCorreo}")
+    public ResponseEntity<List<Cita>> getByPacienteCorreo(@PathVariable String pacienteCorreo) {
+        return ResponseEntity.ok(citaService.getByPacienteCorreo(pacienteCorreo));
     }
 
     @PostMapping("/agendar")

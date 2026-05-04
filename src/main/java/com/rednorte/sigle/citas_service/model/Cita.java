@@ -19,11 +19,11 @@ public class Cita {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "paciente_id")
-    private Long pacienteId; // ID provisto desde fuera
+    @Column(name = "paciente_correo")
+    private String pacienteCorreo; 
 
     @Column(name = "lista_espera_id")
-    private Long listaEsperaId; // ID referencial
+    private Long listaEsperaId;
     
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "medico_id")
