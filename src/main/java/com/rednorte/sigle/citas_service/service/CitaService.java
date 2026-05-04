@@ -35,8 +35,8 @@ public class CitaService {
         return citaRepository.findById(id).orElseThrow(() -> new RuntimeException("Cita no encontrada"));
     }
 
-    public List<Cita> getByPacienteId(Long pacienteId) {
-        return citaRepository.findByPacienteId(pacienteId);
+    public List<Cita> getByPacienteCorreo(String pacienteCorreo) {
+        return citaRepository.findByPacienteCorreo(pacienteCorreo);
     }
 
     @Transactional
@@ -78,7 +78,7 @@ public class CitaService {
 
         CancelacionEvento evento = new CancelacionEvento();
         evento.setCitaId(cita.getId());
-        evento.setPacienteId(cita.getPacienteId());
+        evento.setPacienteCorreo(cita.getPacienteCorreo());
         evento.setListaEsperaId(cita.getListaEsperaId());
         evento.setMotivo(motivo);
         
@@ -94,7 +94,7 @@ public class CitaService {
     @Data
     public static class CancelacionEvento {
         private Long citaId;
-        private Long pacienteId;
+        private String pacienteCorreo;
         private Long listaEsperaId;
         private String motivo;
     }
